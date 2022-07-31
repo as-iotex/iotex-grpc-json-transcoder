@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  testnet:
+    image: envoyproxy/envoy-dev
+    restart: always
+    volumes:
+    - ./envoy-conf-testnet.yaml:/etc/envoy/envoy.yaml
+    - ./proto/out/api.pb:/etc/envoy/proto/out/api.pb
+    ports:
+    - "10000"
+  mainnet:
+    image: envoyproxy/envoy-dev
+    restart: always
+    volumes:
+    - ./envoy-conf-mainnet.yaml:/etc/envoy/envoy.yaml
+    - ./proto/out/api.pb:/etc/envoy/proto/out/api.pb
+    ports:
+    - "10000"
